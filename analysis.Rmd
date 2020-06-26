@@ -1,0 +1,31 @@
+---
+title: "Analysis of COVID-19 and travel patterns"
+output: html_notebook
+---
+
+
+The cases and trip data are downloaded from the New York Times GitHub page and the Bureau of Transportation Statistics, respectively.
+
+
+```{r}
+library(data.table)
+library(ggplot2)
+
+load("./data/merged_covidtrips.RData")
+
+
+ggplot(data = covidtrips.state) + 
+  geom_point(aes(x = date_val, y = number_of_trips)) +
+  geom_point(aes(x = date_val, y = cases)) +
+  theme_bw()
+```
+
+
+Plot of cases versus number of trips by date and State. There seems to be correllation, but with some time lag. This makes sense given the incubation period of a virus.
+
+```{r}
+ggplot(data = covidtrips.nation) + 
+  geom_point(aes(x = date_val, y = new_cases, color = "New Cases")) +
+  #geom_point(aes(x = date_val, y = trips, color = "Trips")) +
+  theme_bw()
+```
