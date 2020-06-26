@@ -113,5 +113,5 @@ covidtrips.nation[ , per_gop := votes_gop/total_votes]
 
 
 #Save
-fwrite(covidtrips.county, file = "./data/merged_covidtrips.csv")
+#fwrite(covidtrips.county, file = "./data/merged_covidtrips.csv")
 save(covidtrips.county, covidtrips.state, covidtrips.division, covidtrips.nation, file = "./data/merged_covidtrips.RData")
